@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="MsBuildUncompressTask" Version="1.0.4" />
+    </ItemGroup>
+    
+    <Target Name="DownloadExternalPackage" AfterTargets="Build">
+        <DownloadFile
+                SourceUrl="https://github.com/ghdl/ghdl/releases/download/v3.0.0/ghdl-macos-11-mcode.tgz"
+                DestinationFileName="temp_package.tmp"
+                DestinationFolder="$(IntermediateOutputPath)" />
+        <Uncompress TargetDirectory="$(OutputPath)tools"
+                    ArchivePath="$(IntermediateOutputPath)temp_package.tmp"/>
+        <Message Text="Downloaded Package from $(ExternalPackageUrl)" Importance="high" />
+    </Target>
+
+</Project>

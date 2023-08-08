@@ -1,10 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using Microsoft.Build.Framework;
 using SharpCompress.Common;
 using SharpCompress.Readers;
 using Task = Microsoft.Build.Utilities.Task;
 
-namespace OneWare.Ghdl;
+namespace MsBuildUncompressTask;
 
 public class Uncompress : Task
 {

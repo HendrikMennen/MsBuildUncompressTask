@@ -6,9 +6,7 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     
-    <ItemGroup>
-      <PackageReference Include="MsBuildUncompressTask" Version="1.0.4" />
-    </ItemGroup>
+    <UsingTask TaskName="MSBuildUncompressTask.Uncompress" AssemblyFile="C:\Users\Hendrik\repos\MsBuildUncompressTask\MsBuildUncompressTask\bin\Debug\netstandard2.0\MsBuildUncompressTask.dll"/>
     
     <Target Name="DownloadExternalPackage" AfterTargets="Build">
         <DownloadFile
